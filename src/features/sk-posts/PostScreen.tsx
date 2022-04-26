@@ -2,11 +2,13 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
+import { handleRedirectPostData } from './PostsSlice';
+import { useAppDispatch } from '../../store/hooks';
 
 interface Post {
   post: PostData;
 }
-interface PostData {
+export interface PostData {
   id: string;
   date: string;
   heading: string;
@@ -22,6 +24,9 @@ const PostHolder = styled.div`
   margin: 10px 0;
   cursor: pointer;
   overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  max-height: 300px;
 `;
 const Heading = styled.h4`
   color: darkorange;
@@ -36,25 +41,33 @@ const Description = styled.p`
 const Img = styled.div`
   transition: all 0.4s ease;
   overflow: hidden;
+  flex: 0 0 47%;
 
   :hover {
     opacity: 0.8;
     transform: scale(1.05);
   }
 `;
+const FirstPart = styled.div`
+  flex: 0 0 47%;
+`;
 
 const PostScreen: FC<Post> = ({ post }) => {
   const history = useHistory();
+  const dispatch = useAppDispatch();
 
   const handleRedirectToPost = () => {
+    dispatch(handleRedirectPostData(post));
     history.push(`/objava/${post.id}`);
   };
 
   return (
     <PostHolder onClick={() => handleRedirectToPost()}>
-      <Date>{post.date}</Date>
-      <Heading>{post.heading}</Heading>
-      <Description>{post.description}</Description>
+      <FirstPart>
+        <Date>{post.date}</Date>
+        <Heading>{post.heading}</Heading>
+        <Description>{post.description}</Description>
+      </FirstPart>
       <Img>
         <img src={post.img} alt="img" />
       </Img>

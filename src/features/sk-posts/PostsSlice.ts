@@ -28,7 +28,7 @@ const initialState: InitialState = {
       date: new Date().toLocaleString(),
       heading:
         'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, eveniet.',
-      description: 'dummy text...',
+      description: 'dummy description about post, description text...',
       img: ChessImg,
     },
     {
@@ -72,7 +72,11 @@ const postsSlice = createSlice({
     handleRedirectPostData(state, action) {
       state.redirectPostData = action.payload;
     },
+    AddNewPost(state, action) {
+      state.arrData = [action.payload, ...state.arrData];
+    },
   },
 });
 
+export const { handleRedirectPostData, AddNewPost } = postsSlice.actions;
 export default postsSlice.reducer;

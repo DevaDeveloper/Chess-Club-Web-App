@@ -55,10 +55,10 @@ const ContactScreen: FC = () => (
       o sahu.
     </Paragraph>
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2814.023108957016!2d17.251272615288325!3d45.146128262631905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47675e9df4c2a83b%3A0x7335812576d31e53!2sMitropolita%20Georgija%20Nikolajevi%C4%87a%2022%2C%20Gradi%C5%A1ka%2078400!5e0!3m2!1shr!2sba!4v1650281944478!5m2!1shr!2sba"
-      width="800"
-      height="530"
-      title="Sk kozara"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d489.7992327890823!2d17.25154505999277!3d45.142073162554354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47675e9fc127edc1%3A0xd3948779b6e81f44!2sKninska%2C%20Gradi%C5%A1ka!5e0!3m2!1shr!2sba!4v1650571262629!5m2!1shr!2sba"
+      width="600"
+      height="450"
+      title="mapa saha"
       loading="lazy"
     />
   </ContactWrapper>

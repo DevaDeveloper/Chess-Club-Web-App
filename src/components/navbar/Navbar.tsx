@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import Logo from '../../assets/sk-kozara-logo-img.jpeg';
 
 const Nav = styled.nav`
@@ -37,6 +37,7 @@ const LogoImg = styled.div`
   margin-left: 40px;
   display: flex;
   align-items: center;
+  cursor: pointer;
   img {
     max-width: 50px;
     max-height: 50px;
@@ -48,28 +49,32 @@ const HeadingName = styled.h3`
   color: #fff;
 `;
 
-const Navbar: FC = () => (
-  <>
-    <Nav>
-      <LogoImg>
-        <img src={Logo} alt="logo" />
-        <HeadingName>SK Kozara Gradiska</HeadingName>
-      </LogoImg>
-      <Ul>
-        <Li>
-          <NavLink to="/">Pocetna prva</NavLink>
-        </Li>
+const Navbar: FC = () => {
+  const history = useHistory();
 
-        <Li>
-          {' '}
-          <NavLink to="/kontakt">Kontakt</NavLink>
-        </Li>
-        <Li>
-          <NavLink to="/o-nama">O nama</NavLink>
-        </Li>
-      </Ul>
-    </Nav>
-  </>
-);
+  return (
+    <>
+      <Nav>
+        <LogoImg onClick={() => history.push('/')}>
+          <img src={Logo} alt="logo" />
+          <HeadingName>SK Kozara Gradiska</HeadingName>
+        </LogoImg>
+        <Ul>
+          <Li>
+            <NavLink to="/">Pocetna prva</NavLink>
+          </Li>
+
+          <Li>
+            {' '}
+            <NavLink to="/kontakt">Kontakt</NavLink>
+          </Li>
+          <Li>
+            <NavLink to="/o-nama">O nama</NavLink>
+          </Li>
+        </Ul>
+      </Nav>
+    </>
+  );
+};
 
 export default Navbar;

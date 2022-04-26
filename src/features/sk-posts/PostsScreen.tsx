@@ -1,8 +1,10 @@
+/* eslint-disable operator-linebreak */
 import React, { FC, useState } from 'react';
-import { v4 as uuid } from 'uuid';
+// import { v4 as uuid } from 'uuid';
 import styled from 'styled-components';
 import PostScreen from './PostScreen';
-import ChessImg from '../../assets/chess-img.jpeg';
+import { useAppSelector } from '../../store/hooks';
+// import ChessImg from '../../assets/chess-img.jpeg';
 
 const Header = styled.h1`
   text-transform: uppercase;
@@ -17,51 +19,16 @@ const Wrapper = styled.div`
   margin: 10px 0;
 `;
 
-const DUMMY_POSTS = [
-  {
-    id: uuid(),
-    date: new Date().toLocaleString(),
-    heading:
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, eveniet.',
-    description: 'dummy text...',
-    img: ChessImg,
-  },
-  {
-    id: uuid(),
-    date: new Date().toLocaleString(),
-    heading:
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, eveniet.',
-    description: 'dummy description text...',
-    img: ChessImg,
-  },
-  {
-    id: uuid(),
-    date: new Date().toLocaleString(),
-    heading:
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, eveniet.',
-    description: 'dummy description text...',
-    img: ChessImg,
-  },
-  {
-    id: uuid(),
-    date: new Date().toLocaleString(),
-    heading:
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, eveniet.',
-    description: 'dummy description text...',
-    img: ChessImg,
-  },
-];
-
 const PostsScreen: FC = () => {
-  const [posts] = useState(DUMMY_POSTS);
+  const allPostsData = useAppSelector((state) => state.postsState.arrData);
+  const [posts] = useState(allPostsData);
   return (
     <>
       <Div>
         <Header>Nase aktivnosti</Header>
         <Wrapper>
-          {posts.map((post) => (
-            <PostScreen post={post} key={post.id} />
-          ))}
+          {posts &&
+            posts.map((post) => <PostScreen post={post} key={post.id} />)}
         </Wrapper>
       </Div>
     </>
