@@ -1,4 +1,5 @@
 {
+  "homepage": "http://DevaDeveloper.github.io/Chess-Club-Web-App",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
@@ -49,7 +50,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -72,6 +75,7 @@
     "@typescript-eslint/parser": "^4.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^14.0.0",
+    "gh-pages": "^3.2.3",
     "husky": "^7.0.2",
     "lint-staged": "^11.2.0",
     "prettier": "2.4.0"
