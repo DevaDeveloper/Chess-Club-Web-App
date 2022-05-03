@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Chess-Club-Web-App/static/css/main.1eea2404.chunk.css",
+    "main.js": "/Chess-Club-Web-App/static/js/main.734237f5.chunk.js",
+    "main.js.map": "/Chess-Club-Web-App/static/js/main.734237f5.chunk.js.map",
+    "runtime-main.js": "/Chess-Club-Web-App/static/js/runtime-main.f4557941.js",
+    "runtime-main.js.map": "/Chess-Club-Web-App/static/js/runtime-main.f4557941.js.map",
+    "static/js/2.eefa05b3.chunk.js": "/Chess-Club-Web-App/static/js/2.eefa05b3.chunk.js",
+    "static/js/2.eefa05b3.chunk.js.map": "/Chess-Club-Web-App/static/js/2.eefa05b3.chunk.js.map",
+    "index.html": "/Chess-Club-Web-App/index.html",
+    "static/css/main.1eea2404.chunk.css.map": "/Chess-Club-Web-App/static/css/main.1eea2404.chunk.css.map",
+    "static/js/2.eefa05b3.chunk.js.LICENSE.txt": "/Chess-Club-Web-App/static/js/2.eefa05b3.chunk.js.LICENSE.txt",
+    "static/media/chess-img.f5903893.jpeg": "/Chess-Club-Web-App/static/media/chess-img.f5903893.jpeg",
+    "static/media/sk-kozara-logo-img.91d0797c.jpeg": "/Chess-Club-Web-App/static/media/sk-kozara-logo-img.91d0797c.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f4557941.js",
+    "static/js/2.eefa05b3.chunk.js",
+    "static/css/main.1eea2404.chunk.css",
+    "static/js/main.734237f5.chunk.js"
+  ]
+}
