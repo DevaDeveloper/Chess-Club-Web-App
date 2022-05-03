@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-computed-key */
 /* eslint-disable no-alert */
 import React, { FC, useState } from 'react';
 import TextField from '@mui/material/TextField';
@@ -5,6 +6,7 @@ import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../../store/hooks';
 import { validationData } from './AdminSlice';
+import classes from './Admin.module.scss';
 
 const FormHolder = styled.div`
   display: flex;
@@ -13,6 +15,12 @@ const FormHolder = styled.div`
 const Form = styled.form`
   max-width: 500px;
   margin: 100px 0;
+
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 const Para = styled.p`
   text-transform: uppercase;
@@ -68,6 +76,7 @@ const AdminScreen: FC = () => {
         <Form onSubmit={handleSubmit}>
           <Para>Log in to Admin Panel</Para>
           <TextField
+            className={classes.inputs}
             placeholder="Username"
             type="text"
             label="Username"
@@ -79,6 +88,12 @@ const AdminScreen: FC = () => {
             sx={{
               minWidth: '470px',
               borderBottom: '#000',
+              ['@media (max-width:780px)']: {
+                // eslint-disable-line no-useless-computed-key
+                width: '90%',
+                minWidth: '280px',
+                maxWidth: '100%',
+              },
             }}
           />
 
@@ -91,7 +106,17 @@ const AdminScreen: FC = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
             InputLabelProps={inputLabelColor}
-            sx={{ minWidth: '470px', borderBottom: '#000', margin: '10px 0' }}
+            sx={{
+              minWidth: '470px',
+              borderBottom: '#000',
+              margin: '10px 0',
+              ['@media (max-width:780px)']: {
+                // eslint-disable-line no-useless-computed-key
+                width: '90%',
+                minWidth: '280px',
+                maxWidth: '100%',
+              },
+            }}
           />
           <Button>Log In</Button>
         </Form>

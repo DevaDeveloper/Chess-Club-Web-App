@@ -11,18 +11,29 @@ interface PostsData {
 }
 
 interface InitialState {
-  arrData: PostsData[];
+  naseAktivnosti: PostsData[];
+  najaveTurnira: PostsData[];
+  skolaSaha: PostsData[];
   redirectPostData: {
     id: string;
     description: string;
     date: string;
     heading: string;
     img: any;
+    img_2: any;
+    img_3: any;
+    img_4: any;
+    img_5: any;
+    img_6: any;
+    img_7: any;
+    img_8: any;
+    img_9: any;
+    img_10: any;
   };
 }
 
 const initialState: InitialState = {
-  arrData: [
+  naseAktivnosti: [
     {
       id: uuid(),
       date: new Date().toLocaleString(),
@@ -37,6 +48,35 @@ const initialState: InitialState = {
       heading:
         'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, eveniet.',
       description: 'dummy description text...',
+      img: ChessImg,
+    },
+    {
+      id: uuid(),
+      date: new Date().toLocaleString(),
+      heading:
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, eveniet.',
+      description: 'dummy description text...',
+      img: ChessImg,
+    },
+  ],
+  skolaSaha: [
+    {
+      id: uuid(),
+      date: new Date().toLocaleString(),
+      heading:
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, eveniet.',
+      description: 'dummy description about post, description text...',
+      img: ChessImg,
+    },
+  ],
+
+  najaveTurnira: [
+    {
+      id: uuid(),
+      date: new Date().toLocaleString(),
+      heading:
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, eveniet.',
+      description: 'dummy description about post, description text...',
       img: ChessImg,
     },
     {
@@ -62,8 +102,28 @@ const initialState: InitialState = {
     date: '',
     heading: '',
     img: '',
+    img_2: '',
+    img_3: '',
+    img_4: '',
+    img_5: '',
+    img_6: '',
+    img_7: '',
+    img_8: '',
+    img_9: '',
+    img_10: '',
   },
 };
+
+// const aktivnostiCollectionRef = collection(db, 'aktivnosti');
+// const najaveCollectionRef = collection(db, 'najave');
+// const skolaCollectionRef = collection(db, 'skola');
+
+// const addPostToDatabase = createAsyncThunk(
+//   'postsslice/addPostToDatabase',
+//   async (data) => {
+//     await addDoc(aktivnostiCollectionRef, data);
+//   },
+// );
 
 const postsSlice = createSlice({
   name: 'postsslice',
@@ -73,7 +133,13 @@ const postsSlice = createSlice({
       state.redirectPostData = action.payload;
     },
     AddNewPost(state, action) {
-      state.arrData = [action.payload, ...state.arrData];
+      if (action.payload.tag === 'najave') {
+        state.najaveTurnira = [action.payload, ...state.najaveTurnira];
+      } else if (action.payload.tag === 'aktivnosti') {
+        state.naseAktivnosti = [action.payload, ...state.naseAktivnosti];
+      } else {
+        state.skolaSaha = [action.payload, ...state.skolaSaha];
+      }
     },
   },
 });

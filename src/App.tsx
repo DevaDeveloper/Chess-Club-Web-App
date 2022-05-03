@@ -6,7 +6,7 @@ import Routes from './routes/Routes';
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Poppins', sans-serif;
-    font-weight: 16px;
+    font-size: 16px;
   }
 `;
 

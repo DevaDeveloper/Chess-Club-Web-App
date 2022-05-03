@@ -14,6 +14,15 @@ export interface PostData {
   heading: string;
   description: string;
   img: string;
+  imgTwo: any;
+  imgThree: any;
+  imgFour: any;
+  imgFive: any;
+  imgSix: any;
+  imgSeven: any;
+  imgEight: any;
+  imgNine: any;
+  imgTen: any;
 }
 
 const PostHolder = styled.div`
@@ -26,7 +35,15 @@ const PostHolder = styled.div`
   overflow: hidden;
   display: flex;
   justify-content: space-between;
-  max-height: 300px;
+  max-height: 200px;
+  min-width: 900px;
+
+  @media (max-width: 1024px) {
+    min-width: auto;
+  }
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 const Heading = styled.h4`
   color: darkorange;
@@ -41,15 +58,26 @@ const Description = styled.p`
 const Img = styled.div`
   transition: all 0.4s ease;
   overflow: hidden;
-  flex: 0 0 47%;
+  flex: 0 0 20%;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 170px;
+    height: 170px;
+  }
 
   :hover {
     opacity: 0.8;
     transform: scale(1.05);
   }
+
+  @media (max-width: 767px) {
+    display: none;
+  }
 `;
 const FirstPart = styled.div`
-  flex: 0 0 47%;
+  flex: 0 0 70%;
 `;
 
 const PostScreen: FC<Post> = ({ post }) => {
@@ -65,8 +93,8 @@ const PostScreen: FC<Post> = ({ post }) => {
     <PostHolder onClick={() => handleRedirectToPost()}>
       <FirstPart>
         <Date>{post.date}</Date>
-        <Heading>{post.heading}</Heading>
-        <Description>{post.description}</Description>
+        <Heading dangerouslySetInnerHTML={{ __html: post.heading }} />
+        <Description dangerouslySetInnerHTML={{ __html: post.description }} />
       </FirstPart>
       <Img>
         <img src={post.img} alt="img" />
